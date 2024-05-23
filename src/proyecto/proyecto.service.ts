@@ -13,11 +13,11 @@ export class ProyectoService {
     ){}
 
     async findAll(): Promise<ProyectoEntity[]> {
-        return await this.proyectoRepository.find({ relations: ["socios"] });
+        return await this.proyectoRepository.find({ relations: ["estudiante"] });
     }
 
     async findOne(id: string): Promise<ProyectoEntity> {
-        const propuesta: ProyectoEntity = await this.proyectoRepository.findOne({where: {id}, relations: ["socios"] } );
+        const propuesta: ProyectoEntity = await this.proyectoRepository.findOne({where: {id}, relations: ["estudiante"] } );
         if (!propuesta)
           throw new BusinessLogicException("The proposal with the given id was not found", BusinessError.NOT_FOUND);
     

@@ -12,6 +12,7 @@ import { ProyectoModule } from './proyecto/proyecto.module';
 import { EstudianteModule } from './estudiante/estudiante.module';
 import { PropuestaModule } from './propuesta/propuesta.module';
 import { ProfesorModule } from './profesor/profesor.module';
+import { ProfesorPropuestasModule } from './profesor-propuestas/profesor-propuestas.module';
 
 
 @Module({
@@ -28,6 +29,7 @@ import { ProfesorModule } from './profesor/profesor.module';
       synchronize: true,
       keepConnectionAlive: true
     }),
+    ProfesorPropuestasModule,
   ],
   controllers: [AppController],
   providers: [AppService],
