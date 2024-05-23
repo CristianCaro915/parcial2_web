@@ -22,7 +22,7 @@ import { ProfesorModule } from './profesor/profesor.module';
       port: 5432,
       username: 'postgres',
       password: 'Cc11912270',
-      database: 'practice3_web',
+      database: 'parcial2_web',
       entities: [ProyectoEntity, ProfesorEntity,EstudianteEntity,PropuestaEntity],
       dropSchema: true,
       synchronize: true,

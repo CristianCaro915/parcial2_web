@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne,OneToOne, JoinColumn, PrimaryGeneratedColumn } from "typeorm";
 import { ProfesorEntity } from "src/profesor/profesor.entity/profesor.entity";
+import { ProyectoEntity } from "src/proyecto/proyecto.entity/proyecto.entity";
 
 @Entity()
 export class PropuestaEntity {
@@ -18,4 +19,8 @@ export class PropuestaEntity {
 
     @ManyToOne(() => ProfesorEntity, profesor => profesor.propuestas)
     profesor: ProfesorEntity;
+
+    @OneToOne(() => ProyectoEntity)
+    @JoinColumn()
+    proyecto: ProyectoEntity;
 }
