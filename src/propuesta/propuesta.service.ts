@@ -30,6 +30,13 @@ export class PropuestaService {
         }
         return await this.propuestaRepository.save(propuesta);
     }
+    async update(id: string, estudiante: PropuestaEntity): Promise<PropuestaEntity> {
+        const persistedClub: PropuestaEntity = await this.propuestaRepository.findOne({where:{id}});
+        if (!persistedClub)
+          throw new BusinessLogicException("The proposal with the given id was not found", BusinessError.NOT_FOUND);
+        
+        return await this.propuestaRepository.save({...persistedClub, ...estudiante});
+    }
 
     async delete(id: string) {
         const propuesta: PropuestaEntity = await this.propuestaRepository.findOne({where:{id}});

@@ -34,6 +34,13 @@ export class ProfesorService {
         }
         return await this.profesorRepository.save(profesor);
     }
+    async update(id: string, profesor: ProfesorEntity): Promise<ProfesorEntity> {
+        const persistedClub: ProfesorEntity = await this.profesorRepository.findOne({where:{id}});
+        if (!persistedClub)
+          throw new BusinessLogicException("The profesor with the given id was not found", BusinessError.NOT_FOUND);
+        
+        return await this.profesorRepository.save({...persistedClub, ...profesor});
+    }
 
     async deleteId(id: string) {
         const profesor: ProfesorEntity = await this.profesorRepository.findOne({where:{id}});

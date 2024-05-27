@@ -13,6 +13,8 @@ import { EstudianteModule } from './estudiante/estudiante.module';
 import { PropuestaModule } from './propuesta/propuesta.module';
 import { ProfesorModule } from './profesor/profesor.module';
 import { ProfesorPropuestasModule } from './profesor-propuestas/profesor-propuestas.module';
+import { ProyectoProfesorModule } from './proyecto-profesor/proyecto-profesor.module';
+import { EstudianteProyectoModule } from './estudiante-proyecto/estudiante-proyecto.module';
 
 
 @Module({
@@ -30,6 +32,8 @@ import { ProfesorPropuestasModule } from './profesor-propuestas/profesor-propues
       keepConnectionAlive: true
     }),
     ProfesorPropuestasModule,
+    ProyectoProfesorModule,
+    EstudianteProyectoModule,
   ],
   controllers: [AppController],
   providers: [AppService],

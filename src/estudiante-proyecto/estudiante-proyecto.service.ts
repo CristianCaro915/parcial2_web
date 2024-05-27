@@ -8,7 +8,7 @@ import { PropuestaEntity } from 'src/propuesta/propuesta.entity/propuesta.entity
 
 
 @Injectable()
-export class ProfesorPropuestasService {
+export class EstudianteProyectoService {
     constructor(
         @InjectRepository(ProfesorEntity)
         private readonly profesorRepository: Repository<ProfesorEntity>,
@@ -17,7 +17,7 @@ export class ProfesorPropuestasService {
         private readonly propuestaRepository: Repository<ProfesorEntity>
     ) {}
 
-    async addProfesorPropuesta(propuestaId: string, profesorId: string){
+    async addEstudiantePropuesta(propuestaId: string, profesorId: string) {
         /* 
         const profesor: ProfesorEntity = await this.profesorRepository.findOne({where: {id: profesorId}});
         const propuesta: PropuestaEntity = await this.propuestaRepository.findOne({where: {id: propuestaId}}) 
@@ -26,21 +26,21 @@ export class ProfesorPropuestasService {
         */
       }
 
-    async findProfesorPropuestas(propuestaId: string){
+    async findEstudiantePropuestas(propuestaId: string){
         /* 
         const propuesta: PropuestaEntity = await this.propuestaRepository.findOne({where: {id: propuestaId}, relations: [""]});
         return propuesta.profesors;
         */
     }
      
-    async findProfesorPropuesta(propuestaId: string, profesorId: string){
+    async findEstudiantePropuesta(propuestaId: string, profesorId: string){
         /* 
         const profesor: ProfesorEntity = await this.profesorRepository.findOne({where: {id: profesorId}});
         return propuestaprofesor;
         */
     }
      
-    async updateProfesorPropuesta(propuestaId: string, profesors: ProfesorEntity[]){
+    async updateEstudiantePropuesta(propuestaId: string, profesors: ProfesorEntity[]){
         /* 
         const propuesta: PropuestaEntity = await this.propuestaRepository.findOne({where: {id: propuestaId}, relations: [""]});
         propuesta.profesors = profesors;
@@ -48,7 +48,7 @@ export class ProfesorPropuestasService {
         */
       }
      
-    async deleteProfesorPropuesta(propuestaId: string, profesorId: string){
+    async deleteEstudiantePropuesta(propuestaId: string, profesorId: string){
         /* 
         const profesor: ProfesorEntity = await this.profesorRepository.findOne({where: {id: profesorId}});
         const propuesta: PropuestaEntity = await this.propuestaRepository.findOne({where: {id: propuestaId}});

@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Column, Entity, OneToOne, JoinColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { ProyectoEntity } from "src/proyecto/proyecto.entity/proyecto.entity";
 
 @Entity()
 export class EstudianteEntity {
@@ -14,4 +15,7 @@ export class EstudianteEntity {
    
     @Column()
     numCreditos: number;
+
+    @OneToOne(() => ProyectoEntity)
+    proyecto: ProyectoEntity;
 }

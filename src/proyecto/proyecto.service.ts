@@ -17,7 +17,7 @@ export class ProyectoService {
     }
 
     async findOne(id: string): Promise<ProyectoEntity> {
-        const propuesta: ProyectoEntity = await this.proyectoRepository.findOne({where: {id}, relations: ["estudiante"] } );
+        const propuesta: ProyectoEntity = await this.proyectoRepository.findOne({where: {id} } );
         if (!propuesta)
           throw new BusinessLogicException("The proposal with the given id was not found", BusinessError.NOT_FOUND);
     
@@ -33,6 +33,22 @@ export class ProyectoService {
         }
         return await this.proyectoRepository.save(proyecto);
     }
+    async update(id: string, estudiante: ProyectoEntity): Promise<ProyectoEntity> {
+        const persistedClub: ProyectoEntity = await this.proyectoRepository.findOne({where:{id}});
+        if (!persistedClub)
+          throw new BusinessLogicException("The proposal with the given id was not found", BusinessError.NOT_FOUND);
+        
+        return await this.proyectoRepository.save({...persistedClub, ...estudiante});
+    }
 
+    async delete(id: string) {
+        const propuesta: ProyectoEntity = await this.proyectoRepository.findOne({where:{id}});
+        if (!propuesta)
+            throw new BusinessLogicException("The proposal given id was not found", BusinessError.NOT_FOUND);
+        if (!propuesta)
+          throw new BusinessLogicException("The cannot delete a proposal that has a proyect", BusinessError.PRECONDITION_FAILED);
+      
+        await this.proyectoRepository.remove(propuesta);
+    }
 
 }

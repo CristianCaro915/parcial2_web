@@ -8,7 +8,7 @@ import { PropuestaEntity } from 'src/propuesta/propuesta.entity/propuesta.entity
 
 
 @Injectable()
-export class ProfesorPropuestasService {
+export class ProyectoProfesorService {
     constructor(
         @InjectRepository(ProfesorEntity)
         private readonly profesorRepository: Repository<ProfesorEntity>,
@@ -18,7 +18,7 @@ export class ProfesorPropuestasService {
     ) {}
 
     async addProfesorPropuesta(propuestaId: string, profesorId: string){
-        /* 
+        /** 
         const profesor: ProfesorEntity = await this.profesorRepository.findOne({where: {id: profesorId}});
         const propuesta: PropuestaEntity = await this.propuestaRepository.findOne({where: {id: propuestaId}}) 
         propuesta.profesor = profesor;
@@ -26,22 +26,22 @@ export class ProfesorPropuestasService {
         */
       }
 
-    async findProfesorPropuestas(propuestaId: string){
-        /* 
+    async findProfesorPropuestas(propuestaId: string) {
+        /** 
         const propuesta: PropuestaEntity = await this.propuestaRepository.findOne({where: {id: propuestaId}, relations: [""]});
         return propuesta.profesors;
         */
     }
      
-    async findProfesorPropuesta(propuestaId: string, profesorId: string){
-        /* 
+    async findProfesorPropuesta(propuestaId: string, profesorId: string) {
+        /** 
         const profesor: ProfesorEntity = await this.profesorRepository.findOne({where: {id: profesorId}});
         return propuestaprofesor;
         */
     }
      
     async updateProfesorPropuesta(propuestaId: string, profesors: ProfesorEntity[]){
-        /* 
+        /** 
         const propuesta: PropuestaEntity = await this.propuestaRepository.findOne({where: {id: propuestaId}, relations: [""]});
         propuesta.profesors = profesors;
         return await this.propuestaRepository.save(propuesta);
@@ -49,7 +49,7 @@ export class ProfesorPropuestasService {
       }
      
     async deleteProfesorPropuesta(propuestaId: string, profesorId: string){
-        /* 
+        /** 
         const profesor: ProfesorEntity = await this.profesorRepository.findOne({where: {id: profesorId}});
         const propuesta: PropuestaEntity = await this.propuestaRepository.findOne({where: {id: propuestaId}});
         const propuestaprofesor: PropuestaEntity = propuesta.profesor;
